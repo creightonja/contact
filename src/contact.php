@@ -1,4 +1,5 @@
 </?php
+
 //setting class variables
 class Contact
 {
@@ -14,6 +15,7 @@ class Contact
   }
 }
 
+
 //creating setters
   function setName($new_name){
     $this->name = $new_name;
@@ -26,6 +28,7 @@ class Contact
   function setNumber($new_number){
     $this->number = $new_number;
   }
+
 
 //creating getters
   function getName(){
@@ -40,6 +43,7 @@ class Contact
     return $this-number;
   }
 
+
 //save method for static data
   function save(){
     array_push($_SESSION['list_of_contacts'])
@@ -48,5 +52,9 @@ class Contact
 //get method for static data
   static function getAll(){
     return $_SESSION['list_of_contacts']
+  }
+
+  static function deleteAll(){
+    $_SESSION['list_of_contacts'] = array();
   }
 ?>
