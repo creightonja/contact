@@ -31,7 +31,7 @@
                       $_POST['input_number']);
     $newcar->save();
 
-    return $app['twig']->render('addcontact.html.twig', array('addedcontact' => $newcontact));
+    return $app['twig']->render('addedcontact.html.twig', array('addedcontact' => $newcontact));
   });
 
 
