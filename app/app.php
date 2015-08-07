@@ -17,12 +17,12 @@
 
 //linking to contact form to set and view contacts
   $app->get("/", function() use ($app) {
-    return $app['twig']->render('contact.html.twig', array('tasks' => Contact::getAll())); //changed tasks.twig
+    return $app['twig']->render('contact.html.twig', array('contacts' => Contact::getAll()));
   });
 
 
 //linking to create contact page
-  $app->post("/tasks", function() use ($app) {
+  $app->post("/contacts", function() use ($app) {
     $contact = new Contact($_POST['name'], $_POST['email'], $_POST['phonenumber']);
     $contact->save();
     return $app['twig']->render('create_contact.html.twig', array('newcontact' => $contact));

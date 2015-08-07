@@ -4,16 +4,16 @@
 </head>
 <body>
     <h1>To Do List</h1>
-    {% if tasks is not empty %}
+    {% if contacts is not empty %}
       <p>Here are all your tasks:</p>
-      {% for contact in tasks %}
+      {% for contact in contacts %}
         <ul>{{ contact.getName }}
           <li>Email: {{ contact.getEmail }}</li>
           <li>Phone: {{ contact.getPhonenumber }}</li>
         </ul>
       {% endfor %}
     {% endif %}
-    <form action='/tasks' method='post'>
+    <form action='/contacts' method='post'>
       <label for='name'>Contact Name</label>
       <input id='name' name='name' type='text'>
       <label for='email'>Email</label>
