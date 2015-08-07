@@ -1,4 +1,4 @@
-</?php
+<?php
 
 //setting class variables
 class Contact
@@ -36,11 +36,11 @@ class Contact
   }
 
   function getEmail(){
-    return $this-email;
+    return $this->email;
   }
 
   function getNumber(){
-    return $this-number;
+    return $this->number;
   }
 
 

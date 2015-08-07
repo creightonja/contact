@@ -20,11 +20,11 @@
 
   //Base directory to redirect to home page.
   $app->get("/", function() use ($app) {
-    return $app['twig']->render('contact.html.twig');
+    return $app['twig']->render('contact.html.twig') array('contacts', Contacts::getAll()));
   });
 
 
-  //Gets the user input from add a contact
+  //Posts the user input from add a contact
   $app->post("/added", function() use ($app) {
     $newcontact = array();
     $newcontact = new Contact($_POST['input_name'], $_POST['input_email'],
@@ -39,22 +39,6 @@
     Task::deleteAll();
     return $app['twig']->render('delete_contacts.html.twig');
   });
-
-  // $app->get("/c", function() use ($app) {
-  //   //Gets the user input from car search
-  //   $user_price = $_GET["user_price"];
-  //   $user_miles = $_GET["user_miles"];
-  //   $cars = Car::getAll();
-  //   $matching_cars = array();
-  //   foreach ($cars as $car) {
-  //     if (($car->getPrice() < $user_price) && ($car->getMiles() < $user_miles)){
-  //       array_push($matching_cars, $car);
-  //     }
-  //   }
-  //
-  //   return  $app['twig']->render('cardisplay.html.twig', array('matching_cars' => $matching_cars));
-  //
-  // });
 
 
   return $app;
