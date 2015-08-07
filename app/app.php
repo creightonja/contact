@@ -2,17 +2,14 @@
   require_once __DIR__."/../vendor/autoload.php";
   require_once __DIR__."/../src/contact.php";
 
-//Creating new session initialized with one contact for testing
+//Creating new session
   session_start();
-    $contact1 = new Contact("Mike Hannon, mikey@mike.com, 5551239999");
     if (empty($_SESSION['list_of_contacts'])) {
-      $_SESSION['list_of_contacts'] = array($contact1);
+        $_SESSION['list_of_contacts'] = array();
     }
 
+//loading silex and twig
   $app = new Silex\Application();
-
-
-  //Setting twig view directory
   $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../views'
   ));
@@ -20,7 +17,7 @@
 
   //Base directory to redirect to home page.
   $app->get("/", function() use ($app) {
-    return $app['twig']->render('contact.html.twig') array('contacts', Contacts::getAll()));
+    return $app['twig']->render('contact.html.twig', array('contacts' => Contact::getAll()));
   });
 
 

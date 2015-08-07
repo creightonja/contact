@@ -14,6 +14,8 @@
     </ul>
     {% endfor %}
     {% endif %}
+
+//Form for entering contact info
     <form action='/added' method='post'>
         <label for='input_name'>Contact's Name</label>
         <input id='input_name' name='input_name' type='text'>
@@ -27,7 +29,7 @@
         <button type='submit'>Add task</button>
     </form>
 
-
+//Delete contacts button
     <form action='/delete_contacts' method='post'>
         <button type='submit'>Delete Contacts</button>
     </form>

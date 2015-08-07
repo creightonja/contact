@@ -7,14 +7,13 @@ class Contact
   private $email;
   private $number;
 
+
 //creating constructor
   function __construct($name, $email, $number) {
     $this->name = $name;
-    $this->price = $price;
+    $this->email = $email;
     $this->number = $number;
   }
-}
-
 
 //creating setters
   function setName($new_name){
@@ -46,15 +45,16 @@ class Contact
 
 //save method for static data
   function save(){
-    array_push($_SESSION['list_of_contacts'])
+    array_push($_SESSION['list_of_contacts'], $this);
   }
 
 //get method for static data
   static function getAll(){
-    return $_SESSION['list_of_contacts']
+    return $_SESSION['list_of_contacts'];
   }
 
   static function deleteAll(){
     $_SESSION['list_of_contacts'] = array();
   }
+}
 ?>
