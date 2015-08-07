@@ -26,14 +26,14 @@
     $newcontact = array();
     $newcontact = new Contact($_POST['input_name'], $_POST['input_email'],
                       $_POST['input_number']);
-    $newcar->save();
+    $newcontact->save();
 
     return $app['twig']->render('addedcontact.html.twig', array('addedcontact' => $newcontact));
   });
 
 
   $app->post("/delete_contacts", function() use ($app) {
-    Task::deleteAll();
+    Contact::deleteAll();
     return $app['twig']->render('delete_contacts.html.twig');
   });
 

@@ -5,27 +5,27 @@ class Contact
 {
   private $name;
   private $email;
-  private $number;
+  private $phone_number;
 
 
 //creating constructor
-  function __construct($name, $email, $number) {
+  function __construct($name, $email, $phone_number) {
     $this->name = $name;
     $this->email = $email;
-    $this->number = $number;
+    $this->phone_number = $phone_number;
   }
 
 //creating setters
   function setName($new_name){
-    $this->name = $new_name;
+    $this->name = (string) $new_name;
   }
 
   function setEmail($new_email){
-    $this->email = $new_email;
+    $this->email = (string) $new_email;
   }
 
-  function setNumber($new_number){
-    $this->number = $new_number;
+  function setNumber($new_phone_number){
+    $this->phone_number = (string) $new_phone_number;
   }
 
 
@@ -38,8 +38,8 @@ class Contact
     return $this->email;
   }
 
-  function getNumber(){
-    return $this->number;
+  function getPhone_number(){
+    return $this->Phone_number;
   }
 
 
