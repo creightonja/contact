@@ -1,36 +1,30 @@
 <html>
 <head>
-    <title>Your Contacts</title>
+    <title>To Do List</title>
 </head>
 <body>
-
-    {$ if contacts is not empty %}
-    <h1>Here are your contacts:</h1>
-
-    {% for contact in contacts %}
-    <ul>{{ contact.getName }}
-        <li>Email: { contact.getEmail }</li>
-        <li>Phone Number: { contact.getNumber }</li>
-    </ul>
-    {% endfor %}
+    <h1>To Do List</h1>
+    {% if tasks is not empty %}
+      <p>Here are all your tasks:</p>
+      {% for contact in tasks %}
+        <ul>{{ contact.getName }}
+          <li>Email: {{ contact.getEmail }}</li>
+          <li>Phone: {{ contact.getPhonenumber }}</li>
+        </ul>
+      {% endfor %}
     {% endif %}
+    <form action='/tasks' method='post'>
+      <label for='name'>Contact Name</label>
+      <input id='name' name='name' type='text'>
+      <label for='email'>Email</label>
+      <input id='email' name='email' type='text'>
+      <label for='phonenumber'>Phone number</label>
+      <input id='phonenumber' name='phonenumber' type='text'>
 
-    <form action='/added' method='post'>
-        <label for='input_name'>Contact's Name</label>
-        <input id='input_name' name='input_name' type='text'>
-
-        <label for='input_email'>Contact's Email</label>
-        <input id='input_email' name='input_email' type='text'>
-
-        <label for='input_number'>Contact's Number</label>
-        <input id='input_number' name='input_number' type='text'>
-
-        <button type='submit'>Add task</button>
+      <button type='submit'>Add Contact</button>
     </form>
-
-
     <form action='/delete_contacts' method='post'>
-        <button type='submit'>Delete Contacts</button>
+      <button type='submit'>delete</button>
     </form>
 </body>
 </html>
